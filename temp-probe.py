@@ -18,7 +18,7 @@ def create_poll_list():
     if item.get('deviceTypeName') == 'Xiaomi Aqara Temperature Humidity Sensor':
       poll_list.append( (item['deviceId'], item['label'].replace(' ', '_'), "temp") )
     if item.get('deviceTypeName') == 'Aeon Home Energy Meter':
-      poll_list.apped( (item['deviceId'], item['label'].replace(' ', '_'), "power") )
+      poll_list.append( (item['deviceId'], item['label'].replace(' ', '_'), "power") )
   return poll_list
 
 def poll_metrics(poll_list):
