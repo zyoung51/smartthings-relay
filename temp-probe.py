@@ -15,9 +15,11 @@ def create_poll_list():
   url='https://api.smartthings.com/v1/devices'
   response=requests.get(url, headers=HEADERS)
   for item in response.json()['items']:
-    if item.get('deviceTypeName') == 'Xiaomi Aqara Temperature Humidity Sensor':
+    if item.get('name') == 'Xiaomi Aqara Temp Sensor':
       poll_list.append( (item['deviceId'], item['label'].replace(' ', '_'), "temp") )
-    if item.get('deviceTypeName') == 'Aeon Home Energy Meter':
+    if item.get('name') == 'Aeon Home Energy Meter':
+      poll_list.append( (item['deviceId'], item['label'].replace(' ', '_'), "power") )
+    if item.get('name') == 'Zooz Power Switch':
       poll_list.append( (item['deviceId'], item['label'].replace(' ', '_'), "power") )
   return poll_list
 
